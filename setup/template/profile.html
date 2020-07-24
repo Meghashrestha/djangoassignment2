@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog feed</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+{% if user_data %}
+{% for item in user_data %}
+{% for user in user_table %}
+    <article class="blog">
+        <h1>{{item.title}}</h1>
+        <article class="blog-details">
+
+            <p>{{ item.blog }}</p>
+            <h6>Posted By Author id  : {{ user.username }} || Name : {{ user.email}}</h6>
+            <h6>Created Date : {{ item.created_date }} </h6>
+        </article>
+    </article>
+    {% endfor %}
+    {% endfor %}
+    {%  else  %}
+            <h1 style="text-align: center; margin-top: 10vh;font-size: 45px;color: rgb(70, 78, 197);">No Blogs Yet!</h1>
+
+    {% endif%}
+</body>
+</html>

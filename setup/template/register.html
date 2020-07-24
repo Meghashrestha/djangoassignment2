@@ -1,0 +1,44 @@
+{% extends "setup/template/base.html" %}
+{% load static %}
+{% block body_block %}
+<!--  <div class="container">-->
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+
+          <form method="POST" class="form-example" action="/register/">
+            {% csrf_token %}
+            <div class="form-example">
+              <label for="firstname">Enter your firstname: </label>{{ user_details.first_name  }}
+            </div>
+            <div class="form-example">
+              <label for="lastname">Enter your lastname: </label>{{ user_details.last_name  }}
+            </div>
+
+            <div class="form-example">
+              <label for="name">Enter your username: </label>{{ user_details.username  }}
+
+            </div>
+            <div class="form-example">
+              <label for="password">Enter your password: </label>{{ user_details.password  }}
+            </div>
+            <div class="form-example">
+              <label for="email">Enter your email: </label>{{ user_details.email  }}
+            </div>
+
+
+            <div class="form-example">
+              <input type="submit" name="Submit" value="Register">
+
+            </div>
+          </form>
+
+
+      {% endif %}
+    </div>
+<!--  </div>-->
+
+{% endblock %}

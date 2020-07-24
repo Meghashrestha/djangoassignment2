@@ -1,0 +1,62 @@
+{% extends "setup/template/base.html" %}
+{% load static %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+    <h1> HIIIIIII !</h1>
+    {% if user.is_authenticated %}
+        <h2>Hello {{ user.username }}</h2>
+        <a class="button" href="profile">Update your</a>
+        <a class="button" href="/feed/">Your Feed</a>
+        <div class="container">
+            <form action="/post/"  method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                            <div class="col-25">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" name="title" placeholder="Title">{{ user_profile.title }}
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-75">
+                        <label for="blog">Write your Blog</label>
+                        <input type="text" id="blog" name="blog" placeholder="Write your blog here">{{ user_profile.blog }}
+                    </div>
+                </div>
+                      <div class="row">
+                    <div class="col-75">
+<!--                        <label for="image">Upload an image</label>-->
+<!--                        <input type="image" id="image" name="image">{{ user_profile.image }}-->
+                        <label for="image">Select image:</label>{{ user_profile.image }}
+                        <input type="file" id="image" name="myfile">
+                    </div>
+                </div>
+<!--                      <div class="row">-->
+<!--                    <div class="col-75">-->
+<!--                        <label for="email">Enter your email : </label>-->
+<!--                        <input type="email" id="email" name="email" placeholder="Email">{{ user_profile.user.email }}-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-25">-->
+<!--                        <label for="email">Confirm your email</label>-->
+<!--                        <input type="email" id="email" name="title" placeholder="Enter your email">{{ user.email }}-->
+<!--                    </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+
+
+
+    {% else %}
+        <h2>Register or Login if you'd like to</h2>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

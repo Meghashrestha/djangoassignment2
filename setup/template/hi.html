@@ -1,0 +1,61 @@
+HTML CSSResult
+EDIT ON
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href='https://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'>
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<div id="header">
+  <h1 style="padding:0;margin:0;">Mr. & Mrs. Rogers</h1>
+  Est. 2011
+</div>
+<div class="parallax" id="trans1">
+  <div class="txt right">
+    &#10085;Live<br/>
+    Laugh<br/>
+    Love&#10085;
+  </div>
+  <div style="clear:both;"></div>
+  <div class="txt right sub">
+    Every Love Story is Beautiful<br/>
+    But Ours is My Favorite
+  </div>
+</div>
+{% for item in data %}
+
+<div class="content">
+    <article class="blog">
+        <h1>{{item.title}}</h1>
+        <article class="blog-details">
+
+            <p>{{ item.blog }}</p>
+            <h6>Posted By Author id  : {{ item.user.username }} || Name : {{item.user.email}}</h6>
+            <h6>Created Date : {{ item.created_date }} </h6>
+        </article>
+    </article>
+
+  <div style="clear:both;"></div>
+</div>
+{% endfor %}
+
+
+
+
+<div class="parallax" id="trans3">
+  <div class="txt left">
+    and they lived...
+  </div>
+  <div style="clear:both;"></div>
+  <div class="txt left sub">
+    Happily Ever After
+  </div>
+</div>
+
+
+ </body>
+ </html>
+
+
+

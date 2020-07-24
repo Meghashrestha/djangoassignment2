@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog feed</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+{% for item in data %}
+    <article class="blog">
+        <h1>{{item.title}}</h1>
+        <article class="blog-details">
+
+            <p>{{ item.blog }}</p>
+            <h6>Posted By Author id  : {{ item.user.username }} || Name : {{item.user.email}}</h6>
+            {{item.image }}
+            <h6>Created Date : {{ item.created_date }} </h6>
+        </article>
+    </article>
+{% endfor %}
+</body>
+</html>
