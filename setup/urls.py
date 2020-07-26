@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, register,user_login,user_logout,feed, post
+from .views import index, user_profile,feed, post,edit_profile, delete_profile
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,6 +9,9 @@ app_name = 'setup'
 urlpatterns = [
     path('', index),
     path('post/', post),
+    path('profile/', user_profile),
+    path('editprofile/', edit_profile),
+    path('deleteprofile/', delete_profile),
 
     # path('user_login/', user_login),
     # path('register/', register),

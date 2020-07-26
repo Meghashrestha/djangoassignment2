@@ -1,0 +1,36 @@
+{% extends "setup/template/base.html" %}
+{% load static %}
+{% block body_block %}
+<!--  <div class="container">-->
+    <div class="jumbotron">
+
+        <h3>Edit your details</h3>
+
+          <form method="POST" class="form-example" action="/editprofile/">
+            {% csrf_token %}
+            <div class="form-example">
+              <label for="firstname">Enter your firstname: </label>{{ form.first_name }}
+            </div>
+            <div class="form-example">
+              <label for="lastname">Enter your lastname: </label>{{ form.last_name }}
+            </div>
+
+            <div class="form-example">
+              <label for="name">Enter your username: </label>{{ form.username }}
+
+            </div>
+            <div class="form-example">
+              <label for="password">Enter your password: </label>{{ form.password }}
+            </div>
+
+            <div class="form-example">
+              <input type="submit" name="Submit" value="Register">
+
+            </div>
+          </form>
+
+
+    </div>
+<!--  </div>-->
+
+{% endblock %}
